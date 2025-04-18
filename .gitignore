@@ -1,0 +1,15 @@
+# Arquivos gerados e binários
+*.exe
+*.out
+*.o
+*.a
+*.so
+
+# Diretórios temporários
+/vendor/
+/bin/
+/obj/
+/tmp/
+
+# Arquivos do Go
+go.sum
