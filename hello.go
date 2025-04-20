@@ -1,36 +1,56 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
-const spanish = "Spanish"
-const french = "French"
-const englishHelloPrefix = "Hello, "
-const spanishHelloPrefix = "Hola, "
-const frenchHelloPrefix = "Bonjour, "
+const (
+	spanish = "Spanish"
+	french  = "French"
+	english = "English"
 
-func Hello(name string, language string) string {
+	englishHelloPrefix = "Hello, "
+	spanishHelloPrefix = "Hola, "
+	frenchHelloPrefix  = "Bonjour, "
+)
+
+func Hello(name, language string) (string, error) {
 	if name == "" {
 		name = "World"
 	}
-	return greetingPrefix(language) + name
 
+	prefix, err := greetingPrefix(language)
+	if err != nil {
+		return "", err
+	}
+
+	return prefix + name, nil
 }
 
-func greetingPrefix(language string) (prefix string) {
+func greetingPrefix(language string) (string, error) {
 	switch language {
 	case spanish:
-		prefix = spanishHelloPrefix
+		return spanishHelloPrefix, nil
 	case french:
-		prefix = frenchHelloPrefix
+		return frenchHelloPrefix, nil
+	case english:
+		return englishHelloPrefix, nil
 	default:
-		prefix = englishHelloPrefix
+		return "", errors.New("unsupported language: " + language)
 	}
-	return
 }
 
 func main() {
-	fmt.Println(Hello("Renan", "French"))
-	fmt.Println(Hello("Renan", "Spanish"))
-	fmt.Println(Hello("Renan", ""))
-	fmt.Println(Hello("", ""))
+	if msg, err := Hello("", "Spanish"); err == nil {
+		fmt.Println(msg)
+	} else {
+		fmt.Println("Erro:", err)
+	}
+
+	if msg, err := Hello("Renan", "German"); err == nil {
+		fmt.Println(msg)
+	} else {
+		fmt.Println("Erro:", err)
+	}
 }
