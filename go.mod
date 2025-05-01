@@ -1,3 +1,3 @@
-module github.com/rcavallini/my_tests_go
+module github.com/rcavallini/tests_go
 
 go 1.22.2
