@@ -41,7 +41,7 @@ func greetingPrefix(language string) (string, error) {
 	}
 }
 
-func main() {
+func sayHello() {
 	if msg, err := Hello("", "Spanish"); err == nil {
 		fmt.Println(msg)
 	} else {
