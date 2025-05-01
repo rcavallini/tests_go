@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/rcavallini/corrida"
+	"github.com/rcavallini/tests_go/corrida"
 )
 
 func main() {
