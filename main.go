@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Hello, World!")
+	fmt.Println("Preparados! Foi dada a largada!")
 	corrida.LargadaCorrida()
 	fmt.Println("Corrida finalizada!")
 
