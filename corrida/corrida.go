@@ -2,6 +2,7 @@ package corrida
 
 import (
 	"fmt"
+	"strings"
 	"time"
 )
 
@@ -29,4 +30,35 @@ func corrida(carro string, x int) {
 		// fmt.Println(carro, ":", i, "voltas")
 		fmt.Printf("%s : %d voltas\n", carro, i)
 	}
+}
+
+func largada() {
+	fmt.Println("Preparados! Foi dada a largada!")
+	var voltas int
+	fmt.Println("Quantas voltas a corrida terá?")
+	fmt.Scanln(&voltas)
+	LargadaCorrida(voltas) // Alterar para passar um numero inserido pelo usuario
+	fmt.Println("Corrida finalizada!")
+	var escuderia string
+	fmt.Println("Qual foi a escuderia vencedora?")
+	fmt.Scanln(&escuderia)
+
+	classificacao := map[string]int{
+		"FERRARI":  10,
+		"MERCEDES": 9,
+		"RBR":      6,
+		"BMW":      4,
+		"RENAULT":  4,
+	}
+
+	// fmt.Println(vencedores)
+
+	if value, ok := classificacao[strings.ToUpper(escuderia)]; ok {
+		fmt.Printf("A escuderia %s venceu com %d voltas\n", strings.ToUpper(escuderia), value)
+		fmt.Println("Total de corridas vencidas:", strings.ToUpper(escuderia), value, ok)
+
+	} else {
+		fmt.Println("Escuderia não encontrada")
+	}
+
 }
