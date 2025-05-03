@@ -1,4 +1,4 @@
-package corrida
+package main
 
 import (
 	"fmt"
@@ -26,13 +26,13 @@ func corrida(carro string, x int) {
 		critério de interrupção para alternancia entre as rotinas.
 	*/
 	for i := 0; i <= x; i++ {
-		time.Sleep(1000 * time.Millisecond)
+		time.Sleep(1 * time.Second)
 		// fmt.Println(carro, ":", i, "voltas")
 		fmt.Printf("%s : %d voltas\n", carro, i)
 	}
 }
 
-func largada() {
+func main() {
 	fmt.Println("Preparados! Foi dada a largada!")
 	var voltas int
 	fmt.Println("Quantas voltas a corrida terá?")
